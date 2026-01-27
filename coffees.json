@@ -1,0 +1,46 @@
+{
+  "coffees": [
+    {
+      "id": 1,
+      "name": "Espresso",
+      "description": "Rich and bold, our signature espresso blend.",
+      "price": 3.50,
+      "image": "https://via.placeholder.com/300x200/8B4513/FFFFFF?text=Espresso"
+    },
+    {
+      "id": 2,
+      "name": "Cappuccino",
+      "description": "Perfect balance of espresso, steamed milk, and foam.",
+      "price": 4.25,
+      "image": "https://via.placeholder.com/300x200/8B4513/FFFFFF?text=Cappuccino"
+    },
+    {
+      "id": 3,
+      "name": "Latte",
+      "description": "Smooth and creamy with a delicate espresso flavor.",
+      "price": 4.50,
+      "image": "https://via.placeholder.com/300x200/8B4513/FFFFFF?text=Latte"
+    },
+    {
+      "id": 4,
+      "name": "Americano",
+      "description": "Espresso with hot water for a smooth, bold taste.",
+      "price": 3.75,
+      "image": "https://via.placeholder.com/300x200/8B4513/FFFFFF?text=Americano"
+    },
+    {
+      "id": 5,
+      "name": "Mocha",
+      "description": "Espresso, chocolate, and steamed milk - a sweet treat.",
+      "price": 5.00,
+      "image": "https://via.placeholder.com/300x200/8B4513/FFFFFF?text=Mocha"
+    },
+    {
+      "id": 6,
+      "name": "Macchiato",
+      "description": "Espresso marked with a dollop of foamed milk.",
+      "price": 4.00,
+      "image": "https://via.placeholder.com/300x200/8B4513/FFFFFF?text=Macchiato"
+    }
+  ]
+}
