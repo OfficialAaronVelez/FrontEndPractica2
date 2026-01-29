@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee House - Welcome Back</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body class="bg-amber-50 min-h-screen overflow-x-hidden">
+    <header class="bg-amber-900 text-white shadow-lg">
+        <nav class="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0">
+            <h1 class="text-xl sm:text-2xl font-bold">☕ Coffee House</h1>
+            <ul class="flex gap-4 sm:gap-6 items-center">
+                <li><a href="home.html" class="hover:text-amber-200 transition text-sm sm:text-base">Home</a></li>
+                <li>
+                    <button id="open-cart" type="button" class="relative p-2 text-white hover:text-amber-200 transition" aria-label="Open cart">
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        <span id="cart-badge" class="absolute -top-1 -right-1 bg-amber-500 text-white text-xs font-bold min-w-[18px] h-[18px] rounded-full hidden items-center justify-center">0</span>
+                    </button>
+                </li>
+                <li><button id="logout-btn" type="button" class="bg-amber-700 px-3 sm:px-4 py-1.5 sm:py-2 rounded hover:bg-amber-600 transition text-sm sm:text-base">Logout</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        <section class="mb-6 sm:mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-amber-900 mb-2">Welcome back!</h2>
+            <p class="text-amber-700 text-sm sm:text-base">What would you like to order today?</p>
+        </section>
+
+        <section class="mb-8 sm:mb-12">
+            <h2 class="text-xl sm:text-2xl font-semibold text-amber-900 mb-4 sm:mb-6">Featured Coffees</h2>
+            <div id="coffees-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <!-- LOAD THE COFFEES HERE WOOHOHOHOHOHOHOHOHOHOHHOOHOHOHOHHOHHHOH-->
+            </div>
+        </section>
+<!-- 
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-amber-900 mb-6">Quick Actions</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <article class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition cursor-pointer">
+                    <h3 class="text-xl font-semibold text-amber-900 mb-2">View Menu</h3>
+                    <p class="text-gray-600">Browse our full selection of coffees and pastries.</p>
+                </article>
+                <article class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition cursor-pointer">
+                    <h3 class="text-xl font-semibold text-amber-900 mb-2">Order History</h3>
+                    <p class="text-gray-600">See your previous orders and reorder favorites.</p>
+                </article>
+                <article class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition cursor-pointer">
+                    <h3 class="text-xl font-semibold text-amber-900 mb-2">Rewards</h3>
+                    <p class="text-gray-600">Check your loyalty points and available rewards.</p>
+                </article>
+            </div>
+        </section> -->
+    </main>
+
+    <aside id="cart-sidebar" class="fixed right-0 top-0 h-full w-full sm:w-80 bg-white shadow-2xl transform translate-x-full transition-transform z-50 overflow-y-auto">
+        <div class="p-4 sm:p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl sm:text-2xl font-bold text-amber-900">Shopping Cart</h2>
+                <button id="close-cart" class="text-gray-500 hover:text-gray-700 p-2 -m-2 touch-manipulation" aria-label="Close cart">✕</button>
+            </div>
+            <div id="cart-items" class="space-y-4 min-h-[120px]">
+                <p class="text-gray-500 text-center py-8">Your cart is empty</p>
+            </div>
+            <div class="mt-8 pt-6 border-t">
+                <div class="flex justify-between mb-4">
+                    <span class="text-lg font-semibold">Total:</span>
+                    <span id="cart-total" class="text-lg font-bold text-amber-800">$0.00</span>
+                </div>
+                <button id="checkout-btn" type="button" class="w-full bg-amber-700 text-white py-3 rounded hover:bg-amber-600 transition">Checkout</button>
+            </div>
+        </div>
+    </aside>
+
+    <footer class="bg-amber-900 text-white mt-8 sm:mt-12 py-6 sm:py-8">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                <section>
+                    <h3 class="text-base sm:text-lg font-semibold mb-3 sm:mb-4">About Us</h3>
+                    <p class="text-amber-200 text-sm sm:text-base">Serving the finest coffee since 2020. We source our beans from sustainable farms worldwide.</p>
+                </section>
+                <section>
+                    <h3 class="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Contact</h3>
+                    <address class="text-amber-200 not-italic text-sm sm:text-base">
+                        <p>123 Coffee Street</p>
+                        <p>City, State 12345</p>
+                        <p>Phone: (555) 123-4567</p>
+                    </address>
+                </section>
+                <section>
+                    <h3 class="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Follow Us</h3>
+                    <ul class="space-y-2 text-amber-200 text-sm sm:text-base">
+                        <li><a href="#" class="hover:text-white transition">Facebook</a></li>
+                        <li><a href="#" class="hover:text-white transition">Instagram</a></li>
+                        <li><a href="#" class="hover:text-white transition">Twitter</a></li>
+                    </ul>
+                </section>
+            </div>
+            <div class="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-amber-800 text-center text-amber-200 text-sm sm:text-base">
+                <p>&copy; 2026 Coffee House. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            if (!sessionStorage.getItem('coffeehouse_logged_in')) {
+                window.location.href = 'index.html';
+                return;
+            }
+        })();
+
+        const email = sessionStorage.getItem('coffeehouse_email') || '';
+        const favoritesKey = 'coffeehouse_favorites_' + email;
+        let favoriteIds = [];
+        try {
+            const raw = localStorage.getItem(favoritesKey);
+            if (raw) favoriteIds = JSON.parse(raw);
+        } catch (_) {}
+
+        const coffeeData = {
+            "coffees": [
+                {
+                    "id": 1,
+                    "name": "Espresso",
+                    "description": "Rich and bold, our signature espresso blend.",
+                    "price": 3.50,
+                    "image": "https://cdn.recetasderechupete.com/wp-content/uploads/2022/01/Expresso-macchiato.jpg"
+                },
+                {
+                    "id": 2,
+                    "name": "Cappuccino",
+                    "description": "Perfect balance of espresso, steamed milk, and foam.",
+                    "price": 4.25,
+                    "image": "https://www.cremashop.eu/content/www.crema.fi/media/brew-guide/cappuccino/illustration_a0843773f8f66f8f73d538ee472e9155.jpeg"
+                },
+                {
+                    "id": 3,
+                    "name": "Latte",
+                    "description": "Smooth and creamy with a delicate espresso flavor.",
+                    "price": 4.50,
+                    "image": "https://gospecialtycoffee.com/medialibrary/2023/07/latte-gospecialtycoffe.jpg"
+                },
+                {
+                    "id": 4,
+                    "name": "Americano",
+                    "description": "Espresso with hot water for a smooth, bold taste.",
+                    "price": 3.75,
+                    "image": "https://huupa.coffee/cdn/shop/articles/warm-hot-americano-coffee-2024-05-22-13-37-28-utc-539197-298249_03f409db-6622-4059-b115-edfbc2639077.jpg?v=1742927846"
+                },
+                {
+                    "id": 5,
+                    "name": "Mocha",
+                    "description": "Espresso, chocolate, and steamed milk - a sweet treat.",
+                    "price": 5.00,
+                    "image": "https://images.immediate.co.uk/production/volatile/sites/2/2021/11/Mocha-1fc71f7.png?resize=1200%2C630"
+                },
+                {
+                    "id": 6,
+                    "name": "Macchiato",
+                    "description": "Espresso marked with a dollop of foamed milk.",
+                    "price": 4.00,
+                    "image": "https://imag.bonviveur.com/cafe-macchiato.jpg"
+                }
+            ]
+        };
+
+        coffeeData.coffees.forEach(function (c) {
+            c.isFavorite = favoriteIds.includes(c.id);
+        });
+
+        function loadCoffees() {
+            const container = document.getElementById('coffees-container');
+            const sorted = [...coffeeData.coffees].sort(function (a, b) {
+                return (b.isFavorite ? 1 : 0) - (a.isFavorite ? 1 : 0);
+            });
+
+            container.innerHTML = sorted.map(coffee => `
+                <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+                    <img src="${coffee.image}" alt="${coffee.name}" class="w-full h-40 sm:h-48 object-cover">
+                    <div class="p-3 sm:p-4">
+                        <h3 class="text-lg sm:text-xl font-semibold text-amber-900 mb-2">${coffee.name}</h3>
+                        <p class="text-gray-600 text-sm sm:text-base mb-3 sm:mb-4 line-clamp-2">${coffee.description}</p>
+                        <div class="flex flex-wrap justify-between items-center gap-2">
+                            <span class="text-xl sm:text-2xl font-bold text-amber-800">$${coffee.price.toFixed(2)}</span>
+                            <div class="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+                                <button type="button" class="favorite-icon min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg hover:bg-amber-50 transition touch-manipulation" aria-label="Toggle favorite"><i class="${coffee.isFavorite ? 'fa-solid' : 'fa-regular'} fa-star text-amber-500 text-lg" id="favorite-icon-${coffee.id}"></i></button>
+                                <button type="button" class="add-to-cart min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg hover:bg-amber-50 transition touch-manipulation" aria-label="Add to cart" data-coffee-id="${coffee.id}"><i class="fa-solid fa-cart-shopping text-amber-500 text-lg"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        loadCoffees();
+
+        let cart = [];
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const cartItemsEl = document.getElementById('cart-items');
+        const cartTotalEl = document.getElementById('cart-total');
+        const cartBadge = document.getElementById('cart-badge');
+
+        function getCartCount() {
+            return cart.reduce(function (n, it) { return n + it.qty; }, 0);
+        }
+
+        function renderCart() {
+            const count = getCartCount();
+            if (count > 0) {
+                cartBadge.textContent = count > 99 ? '99+' : count;
+                cartBadge.classList.remove('hidden');
+                cartBadge.classList.add('flex');
+            } else {
+                cartBadge.classList.add('hidden');
+                cartBadge.classList.remove('flex');
+            }
+
+            if (cart.length === 0) {
+                cartItemsEl.innerHTML = '<p class="text-gray-500 text-center py-8">Your cart is empty</p>';
+                cartTotalEl.textContent = '$0.00';
+                return;
+            }
+
+            let total = 0;
+            cartItemsEl.innerHTML = cart.map(function (it) {
+                const sub = it.price * it.qty;
+                total += sub;
+                return (
+                    '<div class="flex justify-between items-start gap-2 py-2 border-b border-gray-100" data-cart-id="' + it.id + '">' +
+                    '<div><p class="font-medium text-amber-900">' + it.name + '</p><p class="text-sm text-gray-500">$' + it.price.toFixed(2) + ' × ' + it.qty + '</p></div>' +
+                    '<div class="flex items-center gap-2 flex-shrink-0">' +
+                    '<span class="font-semibold text-amber-800">$' + sub.toFixed(2) + '</span>' +
+                    '<button type="button" class="cart-remove p-1 text-gray-400 hover:text-red-600 transition" aria-label="Remove" data-coffee-id="' + it.id + '"><i class="fa-solid fa-trash-can text-sm"></i></button>' +
+                    '</div></div>'
+                );
+            }).join('');
+            cartTotalEl.textContent = '$' + total.toFixed(2);
+        }
+
+        function openCart() {
+            cartSidebar.classList.remove('translate-x-full');
+            cartSidebar.classList.add('translate-x-0');
+        }
+
+        function closeCart() {
+            cartSidebar.classList.add('translate-x-full');
+            cartSidebar.classList.remove('translate-x-0');
+        }
+
+        document.getElementById('open-cart').addEventListener('click', openCart);
+        document.getElementById('close-cart').addEventListener('click', closeCart);
+
+        document.getElementById('coffees-container').addEventListener('click', function (e) {
+            const btn = e.target.closest('.add-to-cart');
+            if (!btn) return;
+            const id = parseInt(btn.dataset.coffeeId, 10);
+            const coffee = coffeeData.coffees.find(function (c) { return c.id === id; });
+            if (!coffee) return;
+            const existing = cart.find(function (it) { return it.id === id; });
+            if (existing) existing.qty += 1;
+            else cart.push({ id: coffee.id, name: coffee.name, price: coffee.price, qty: 1 });
+            renderCart();
+            openCart();
+        });
+
+        cartItemsEl.addEventListener('click', function (e) {
+            const btn = e.target.closest('.cart-remove');
+            if (!btn) return;
+            const id = parseInt(btn.dataset.coffeeId, 10);
+            cart = cart.filter(function (it) { return it.id !== id; });
+            renderCart();
+        });
+
+        document.getElementById('checkout-btn').addEventListener('click', function () {
+            if (cart.length === 0) {
+                alert('Your cart is empty.');
+                return;
+            }
+            alert('Order placed! Thank you for your order.');
+            cart = [];
+            renderCart();
+            closeCart();
+        });
+
+        renderCart();
+
+        document.getElementById('logout-btn').addEventListener('click', function () {
+            sessionStorage.removeItem('coffeehouse_logged_in');
+            sessionStorage.removeItem('coffeehouse_email');
+            window.location.href = 'index.html';
+        });
+
+        document.querySelectorAll('.favorite-icon').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const icon = btn.querySelector('i');
+                const coffeeId = parseInt(icon.id.split('-')[2], 10);
+                const coffee = coffeeData.coffees.find(c => c.id === coffeeId);
+                if (!coffee) return;
+
+                coffee.isFavorite = !coffee.isFavorite;
+                icon.classList.toggle('fa-regular', !coffee.isFavorite);
+                icon.classList.toggle('fa-solid', coffee.isFavorite);
+
+                const favoriteIds = coffeeData.coffees.filter(c => c.isFavorite).map(c => c.id);
+                localStorage.setItem(favoritesKey, JSON.stringify(favoriteIds));
+            });
+        });
+    </script>
+</body>
+</html>
